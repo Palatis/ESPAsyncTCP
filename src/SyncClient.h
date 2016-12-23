@@ -54,10 +54,10 @@ class SyncClient: public Client {
     int connect(IPAddress ip, uint16_t port, bool secure);
     int connect(const char *host, uint16_t port, bool secure);
     int connect(IPAddress ip, uint16_t port){
-      return connect(ip, port, false);
+      return connect(ip, port, port == 443);
     }
     int connect(const char *host, uint16_t port){
-      return connect(host, port, false);
+      return connect(host, port, port == 443);
     }
 #else
     int connect(IPAddress ip, uint16_t port);
